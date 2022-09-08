@@ -5,19 +5,51 @@ import math
 import numpy as np 
 #functions:
 x=""
+def Replace():
+    global x
+    d={"tan":"math.tan",
+        "sin":"math.sin",
+        "cos":"math.cos",
+        "^":"**",
+        "×":"*",
+        "cos-1":"np.arcCos",
+        "sin-1":"np.arcSin",
+        "tan-1":"np.arcTan",
+        "log":"math.log10",
+        "ln":"math.log2",
+        "÷":"/",
+        "²":"**2",
+        "³":"**3"}
+    for i in d:
+        if i in x:
+            x=x.replace(i,d[i])
+    Write(x)
+    import v
+    n=v.a
+    var2.set(str(n))
+    
+def Write(x):
+    f=open("v.py",'w')
+    f.write("import math\nimport numpy as np\nc="+x+"\na=c")
+    f.flush()
+    f.close()
+    
 def click(n):
     global x
     x+=n
     var.set(x)
+    
 def DEL():
     global x
     x=x[0:len(x)-1]
     var.set(x)
+    
 def AC():
     global x
     x=""
     var.set(x)
     var2.set(x)
+    
 #GUI Block:
 top=tk.Tk()
 var,var2 = tk.StringVar(),tk.StringVar()
